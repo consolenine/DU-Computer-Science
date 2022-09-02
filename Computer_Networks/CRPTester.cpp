@@ -119,7 +119,7 @@ string CRCEncoder(string dataword, Polynomial p) {
     cout << "Appended " << d << endl;
 
     //Step 3 - Perform binary division to obtain CRC bits.
-    string CRC = binaryDiv(bs, d);
+    string CRC = binaryDiv(d, bs);
     cout << endl << CRC << endl;
 
     //Step 4 - Append CRC bits at LSB within dataword and return dataword as codeword.
