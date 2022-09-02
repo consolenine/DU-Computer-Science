@@ -31,30 +31,10 @@ class Polynomial {
         }
 };
 
-//string XOR(string x, string y) {
-//    string out = "";
-//    for (int i = 0; i < x.length(); i++) out += (x[i] == y[i]) ? "0" : "1";
-//    return out;
-//}
-string XOR(string a, string b)
-{
-	
-	// Initialize result
-	string result = "";
-	
-	int n = b.length();
-	
-	// Traverse all bits, if bits are
-	// same, then XOR is 0, else 1
-	for(int i = 1; i < n; i++)
-	{
-		if (a[i] == b[i])
-			result += "0";
-		else
-			result += "1";
-	}
-	cout << "XOR " << result << endl;
-	return result;
+string XOR(string x, string y) {
+   string out = "";
+   for (int i = 1; i < y.length(); i++) out += (x[i] == y[i]) ? "0" : "1";
+   return out;
 }
 
 string binaryDiv(string divident, string divisor)
@@ -77,7 +57,6 @@ string binaryDiv(string divident, string divisor)
 			// Replace the divident by the result
 			// of XOR and pull 1 bit down
 			tmp = XOR(divisor, tmp) + divident[index];
-			cout << "tmp  " << tmp << endl;
 		}
 		else {
 		
@@ -88,7 +67,6 @@ string binaryDiv(string divident, string divisor)
 			// use the regular divisor; we need to use an
 			// all-0s divisor.
 			tmp = XOR(std::string(index, '0'), tmp) + divident[index];
-			cout << "tmp  " << tmp << endl;
 		}
 		// Increment index to move further
 		index += 1;
@@ -99,12 +77,9 @@ string binaryDiv(string divident, string divisor)
 	// Index Out of Bounds.
 	if (tmp[0] == '1') {
 		tmp = XOR(divisor, tmp);
-		cout << "tmp  " << tmp << endl;
-	}
-		
+	}	
 	else {
 		tmp = XOR(std::string(index, '0'), tmp);
-		cout << "tmp  " << tmp << endl;
 	}
 				
 	return tmp;
